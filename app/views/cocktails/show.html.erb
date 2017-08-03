@@ -1,17 +1,22 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @cocktail.name %>
-</p>
-
-<p>Recipe:</p>
-<ul>
-  <% @cocktail.doses.each do |d| %>
-  <li><%= d.description %> <%= d.ingredient.name %>
-  <%= link_to 'Delete dose', dose_path(d.id), method: :delete %>
-  </li>
-  <% end %>
-</ul>
-<%= link_to 'Back', cocktails_path %>
-<%= link_to 'Add dose', new_cocktail_dose_path(@cocktail) %>
+<div class="wrapper">
+  <div class="container">
+    <h3>
+      <strong>Name:</strong>
+      <%= @cocktail.name %>
+    </h3>
+    <div class="card-form">
+      <h4>Recipe:</h4>
+      <ul>
+        <% @cocktail.doses.each do |d| %>
+        <li><p><%= d.description %> <%= d.ingredient.name %></p>
+          <%= link_to 'Delete dose', dose_path(d.id), method: :delete, class: "link" %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="buttons">
+      <%= link_to 'Back', cocktails_path, class: "btn btn-primary" %>
+      <%= link_to 'Add dose', new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

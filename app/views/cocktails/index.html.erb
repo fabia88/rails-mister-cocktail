@@ -1,25 +1,25 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Cocktails</h1>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://s-media-cache-ak0.pinimg.com/originals/bc/42/8b/bc428be9e6aaad8587c471d3d9e8bbba.jpg');">
+  <h1>Cocktails</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+</div>
 
-  <tbody>
-    <% @cocktails.each do |cocktail| %>
-      <tr>
-        <td><%= cocktail.name %></td>
-        <td><%= link_to 'Show', cocktail %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="wrapper-home">
+  <div class="text-center">
+    <div class="container">
+      <div class="row">
+        <% @cocktails.each do |cocktail| %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card">
+            <div class="card-description">
+              <h3><%= cocktail.name.capitalize %></h3>
+              <%= link_to 'Show', cocktail, class: "card-link" %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<br>
-
-<%= link_to 'New Cocktail', new_cocktail_path %>

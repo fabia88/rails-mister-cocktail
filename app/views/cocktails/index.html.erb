@@ -10,16 +10,28 @@
       <div class="row">
         <% @cocktails.each do |cocktail| %>
         <div class="col-xs-12 col-sm-4">
-          <div class="card">
+          <% if cocktail.photo? %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+          url(<%= cl_image_path cocktail.photo, height: 175, crop: :scale %>)">
+          <% else %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+          url('https://s-media-cache-ak0.pinimg.com/originals/bc/42/8b/bc428be9e6aaad8587c471d3d9e8bbba.jpg')">
+<% end %>
+
+
+
             <div class="card-description">
               <h3><%= cocktail.name.capitalize %></h3>
               <%= link_to 'Show', cocktail, class: "card-link" %>
             </div>
           </div>
-        </div>
-        <% end %>
-      </div>
+
     </div>
+    <% end %>
   </div>
 </div>
+</div>
+</div>
 
+<!-- https://s-media-cache-ak0.pinimg.com/originals/bc/42/8b/bc428be9e6aaad8587c471d3d9e8bbba.jpg -->
+<!-- cl_image_tag("yewousb3vd9xbds5gdwj.jpg", width: 60, height: 50, crop: :fill)%> -->
